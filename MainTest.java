@@ -1,20 +1,32 @@
+// this is where I do all f  my tests
+
 public class MainTest {
 
     public static void main(String[] args) {
 
         intList liste = new intList();
 
-        for (int i = 0; i <= 10; i++) {
+        display(liste);
 
-            liste.addElement(i);
+        liste.addElement(4);
 
-        }
+        display(liste);
 
-        System.out.println(liste);
+        liste.addElement(5);
 
-        liste.reverse();
+        display(liste);
 
-        System.out.println(liste);
+        int a = liste.removeElement();
+
+        System.out.println(a);
+
+        display(liste);
 
     }
+
+    public static void display(intList oneListe) {
+
+        System.out.println(oneListe);
+
+    } 
 }

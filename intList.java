@@ -1,38 +1,73 @@
+/* 
+
+Here is the true intList class that you're going to use
+
+as I love recursive fonctions, I did almost all of the  following methods
+in recursive
+so the structure of the majority of fonction is :
+a case for the  empty list, and then a call to the general case which
+is a fonction implemented in the Node class
+
+*/
+
 public class intList {
+
+    // class variable
 
     private Node head;
 
+    // constructors
+
+    // empty list constructor
     public intList() {
-        // here is an empty list constructor
 
         this.head = null;
 
     }
 
+    // constructor for a list with a single value
     public intList(int value) {
 
         this.head = new Node(value);
 
     }
 
-    public intList(int value, Node tail) {
+    // constructor with the head value and the node tail
+    public intList(int head, Node tail) {
 
-        this.head = new Node(value, tail);
+        this.head = new Node(head, tail);
 
     }
 
+    // copy constructor
+    public intList(intList anotherIntList) {
+
+        this.head = new Node(anotherIntList.getHeadNode());
+
+    }
+
+    // return the head (Node)
+    public Node getHeadNode() {
+
+        return this.head;
+
+    }
+
+    // return the head value (int)
     public int getHead() {
 
         return this.head.getData();
 
     }
 
+    // return the tail Node
     public Node getTail() {
 
         return this.head.getNext();
 
     }
 
+    // return the list in the format : " ( element1, element2, ...) "
     public String toString() {
 
         if (this.head == null)
@@ -45,50 +80,28 @@ public class intList {
 
     }
 
+    // return the length of the list
     public int length() {
 
         return this.head == null ? 0 : this.head.length();
 
     }
 
+    // add an element at the beginning of the list
     public void addElement(int element) {
 
-        if (this.head == null) {
-
-            this.head = new Node(element);
-
-        } else {
-
-            Node newHead = new Node(element);
-            newHead.setNext(this.head);
-            this.head = newHead;
-
-        }
+        this.head = new Node(element, this.head);
 
     }
 
-    public int remove() {
+    // remove the first element from the list and return it
+    public int removeElement() {
 
-        int headValue = this.head.getData();
-        this.head = this.head.getNext();
-        return headValue;
+        int firstElement = this.getHead();
+        this.head = new Node(this.getTail());
 
-    }
-
-    public void reverse() {
-
-        intList reversedList = new intList();
-
-        int length = this.length();
-
-        for (int i = 0; i < length; i++) {
-
-            reversedList.addElement(this.remove());
-
-        }
-
-        this.head = reversedList.head;
-
+        return firstElement;
+        
     }
 
 }

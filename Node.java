@@ -88,4 +88,106 @@ public class Node {
         return (this.next == null) ? 1 : 1 + this.next.length();
 
     }
+
+    public Node addElement(int n) {
+
+        this.next = new Node(this);
+        this.data = n;
+        return this;
+    }
+
+    public int sum() {
+
+        if (this.next == null) {
+
+            return this.data;
+
+        } else {
+
+            return this.data + this.next.sum();
+
+        }
+    }
+
+    public int lastElement() {
+
+        if (this.next == null) {
+
+            return this.data;
+
+        } else {
+
+            return this.next.lastElement();
+
+        }
+    }
+
+    public int maxValue() {
+
+        if (this.next == null) {
+
+            return this.data;
+
+        } else {
+
+            return this.data >= this.next.maxValue() ? this.data : this.next.maxValue();
+
+        }
+    }
+
+    public int numberOfN(int n) {
+
+        if (this.next == null) {
+
+            return this.data == n ? 1 : 0;
+
+        } else {
+
+            return this.data == n ? 1 + this.next.numberOfN(n) : this.next.numberOfN(n);
+
+        }
+    }
+
+    public void addAtTheEnd(int n) {
+
+        if (this.next == null) {
+
+            this.next = new Node(n);
+
+        } else {
+
+            this.next.addAtTheEnd(n);
+
+        }
+    }
+
+    public Node delete(int n) {
+
+        if (this.next == null) {
+
+            if (this.data == n) {
+
+                this.data = this.next.data;
+                this.next = this.next.next;
+
+            }
+
+            return this;
+
+        } else {
+
+            if (this.data == n) {
+
+                this.data = this.next.data;
+                this.next = this.next.next;
+
+                return this;
+
+            } else {
+
+                return this.next.delete(n);
+
+            }
+        }
+    }
 }

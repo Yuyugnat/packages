@@ -39,6 +39,13 @@ public class intList {
 
     }
 
+    // constructor from a single Node
+    public intList(Node aNode) {
+
+        this.head = aNode;
+
+    }
+
     // copy constructor
     public intList(intList anotherIntList) {
 
@@ -63,9 +70,10 @@ public class intList {
     // return the tail Node
     public Node getTail() {
 
-        return this.head.getNext();
+        return new Node(this.head.getNext());
 
     }
+    
 
     // return the list in the format : " ( element1, element2, ...) "
     public String toString() {
@@ -101,6 +109,103 @@ public class intList {
         this.head = new Node(this.getTail());
 
         return firstElement;
+        
+    }
+
+    public int sum() {
+
+        if (this.head == null) {
+            
+            return 0;
+
+        } else {
+
+            return this.head.sum();
+
+        }
+    }
+
+    public int lastElement() {
+
+        return this.head.lastElement();
+
+    }
+
+    public boolean overK(int k) {
+
+        return k <= this.length();
+
+    }
+
+    public boolean lengthIsEven() {
+
+        return this.length() % 2 == 0;
+
+    }
+
+    public int maxValue() {
+
+        return this.head.maxValue();
+
+    }
+
+    public int numberOfN(int n) {
+
+        if (this.head == null) {
+
+            return 0;
+
+        } else {
+
+            return this.head.numberOfN(n);
+
+        }
+    }
+
+    public void addAtTheEnd(int n) {
+
+        if (this.head == null) {
+
+            this.head = new Node(n);
+
+        } else {
+
+            this.head.addAtTheEnd(n);
+
+        }
+    }
+
+    public void addEndIfMissing(int n) {
+
+        if (this.numberOfN(n) == 0) this.addAtTheEnd(n);
+
+    }
+
+    /* public intList extractOddNumbers() {
+
+        intList newList = new intList();
+
+
+    }
+
+    private static intList extractOddNumbersAux(intList result, intList current) {
+
+        if (current.head == null) {
+
+            return result;
+
+        } else {
+
+            if (current.getHead() % 2 == 1) result.addElement(current.getHead());
+
+            return extractOddNumbersAux(result, new intList(current.getTail()));
+
+        }
+    } */
+    
+    public void delete(int n) {
+
+        this.head = this.head.delete(n);
         
     }
 

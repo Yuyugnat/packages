@@ -12,15 +12,24 @@ public class MainTest {
 
         display(liste);
 
-        liste.addElement(5);
+        liste.addElement(3);
+        liste.addElement(6);
+        liste.addElement(3);
+        liste.addElement(3);
+        liste.addAtTheEnd(1);
+        liste.addEndIfMissing(2);
 
         display(liste);
 
-        int a = liste.removeElement();
+        Node test = new Node(2);
+        test.addElement(4);
+        test.addElement(3);
+        test.addElement(2);
 
-        System.out.println(a);
+        liste.delete(1);
+        display(test);
 
-        display(liste);
+        // System.out.println(liste.numberOfN(5));
 
     }
 

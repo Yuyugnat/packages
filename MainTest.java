@@ -27,7 +27,7 @@ public class MainTest {
         test.addElement(2);
 
         liste.delete(1);
-        display(test);
+        // display(test);
 
         // System.out.println(liste.numberOfN(5));
 

@@ -1,5 +1,3 @@
-package yuyugnat;
-
 import yuyugnat.tree.*;
 
 public class testArbreLexicoGraphique {

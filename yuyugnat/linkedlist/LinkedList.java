@@ -1,25 +1,25 @@
 package yuyugnat.linkedlist;
 
-public class linkedList<T> {
+public class LinkedList<T> {
 
     private T head;
-    private linkedList<T> tail;
+    private LinkedList<T> tail;
 
-    public linkedList() {
+    public LinkedList() {
 
         this.head = null;
         this.tail = null;
 
     }
 
-    public linkedList(T headElement) {
+    public LinkedList(T headElement) {
 
         this.head = headElement;
         this.tail = null;
 
     }
 
-    public linkedList(T headElement, linkedList<T> tailList) {
+    public LinkedList(T headElement, LinkedList<T> tailList) {
 
         this.head = headElement;
         this.tail = tailList;
@@ -59,7 +59,7 @@ public class linkedList<T> {
 
     public void addElement(T element) {
 
-        this.tail = new linkedList<>(this.head, this.tail);
+        this.tail = new LinkedList<>(this.head, this.tail);
         this.head = element;
 
     }
@@ -87,11 +87,14 @@ public class linkedList<T> {
             return null;
 
         }
+
     }
+
+    
 
     public static void main(String[] args) {
 
-        linkedList<Integer> liste = new linkedList<>();
+        LinkedList<Integer> liste = new LinkedList<>();
 
         System.out.println(liste.length());
 
@@ -116,7 +119,6 @@ public class linkedList<T> {
         System.out.println(lol);
 
         System.out.println(liste.elementAt(5));
-
     }
     
 

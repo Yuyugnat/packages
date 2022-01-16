@@ -4,19 +4,19 @@ import yuyugnat.linkedlist.*;
 public class Tree <T>{
     
     private T value; // the value is set to null if it is the root of the structure
-    private linkedList<Tree<T>> branches;
+    private LinkedList<Tree<T>> branches;
 
     public Tree() {
 
         this.value = null;
-        this.branches = new linkedList<>();
+        this.branches = new LinkedList<>();
 
     }
 
     public Tree(T value) {
 
         this.value = value;
-        this.branches = new linkedList<>();
+        this.branches = new LinkedList<>();
 
     }
 
